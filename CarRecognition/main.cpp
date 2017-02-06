@@ -179,11 +179,11 @@ int main() {
 	cv::Rect ROI = getROI(previousFrame);
 	//Adjust to ROI
 	previousFrame = previousFrame(ROI);
-	//create track bars
-	createTrackbars();
 	//Set screen settings
 	x_max = ROI.width;
 	y_max = ROI.height;
+	//create track bars
+	createTrackbars();
 	//Go over the video untill the last frame
 	while (capture.get(CV_CAP_PROP_POS_FRAMES) < capture.get(CV_CAP_PROP_FRAME_COUNT)) {
 		//Get next frame
