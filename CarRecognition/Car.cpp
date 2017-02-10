@@ -1,5 +1,11 @@
 #include "Car.h"
 
+Car::Car(int x, int y)
+{
+	this->x = x;
+	this->y = y;
+}
+
 //Destuctor
 Car::~Car() {};
 
@@ -37,7 +43,7 @@ Car Car::findNearest(std::vector<Car> list)
 	Car minCar = list.at(0);
 	for (int i = 1; i < list.size(); i++) {
 		Car currentCar = list.at(i);
-		double currentDistance = distance(currentCar.getX(), currentCar.getY());
+		double currentDistance = distance(currentCar);
 		if (currentDistance < minDistance)
 		{
 			minDistance = currentDistance;
@@ -51,4 +57,10 @@ Car Car::findNearest(std::vector<Car> list)
 double Car::distance(int x, int y)
 {
 	return sqrt(((this->y)-y) ^ 2 + ((this->x)-x) ^ 2);
+}
+
+//Calculates the distance from this car to a given car
+double Car::distance(Car car)
+{
+	return distance(car.getX, car.getY);
 }
