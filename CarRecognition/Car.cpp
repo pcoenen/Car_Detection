@@ -62,5 +62,5 @@ double Car::distance(int x, int y)
 //Calculates the distance from this car to a given car
 double Car::distance(Car car)
 {
-	return distance(car.getX, car.getY);
+	return distance(car.getX(), car.getY());
 }
