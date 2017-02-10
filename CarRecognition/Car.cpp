@@ -33,6 +33,13 @@ void Car::setColor(cv::Scalar color)
 	this->color = (color);
 }
 
+//Equality test for cars
+bool Car::operator==(Car car)
+{
+	//Two cars are equal if their position and color is equal
+	return this->getColor() == car.getColor() && this->getX() == car.getX() && this->getY() == car.getY();
+}
+
 //This function searches for the car that is the closest to this car
 Car Car::findNearest(std::vector<Car> list)
 {
@@ -56,7 +63,7 @@ Car Car::findNearest(std::vector<Car> list)
 //Calculates the distance from this car to given coordinates
 double Car::distance(int x, int y)
 {
-	return sqrt(((this->y)-y) ^ 2 + ((this->x)-x) ^ 2);
+	return sqrt(((this->x) - x)* ((this->x) - x) + ((this->y) - y)* ((this->y) - y));
 }
 
 //Calculates the distance from this car to a given car

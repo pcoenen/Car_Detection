@@ -15,5 +15,6 @@ public:
 	double distance(int x, int y);
 	double distance(Car car);
 	void setColor(cv::Scalar color);
+	bool operator == (Car car);
 };
 
