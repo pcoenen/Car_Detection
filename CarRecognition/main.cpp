@@ -1,7 +1,6 @@
 #include <opencv2/highgui.hpp>
 #include <opencv2/opencv.hpp>
 #include <windows.h>
-#include "main.h"
 
 using namespace std;
 using namespace cv;
@@ -75,9 +74,9 @@ cv::Rect getROI(Mat Frame) {
 		Mat copyFrame;
 		Frame.copyTo(copyFrame);
 		//Check if min coordinates of ROI are set
-		if (ROI_x_min > 0 && ROI_y_min > 0 && mouse_x >= ROI_x_min && mouse_y >= ROI_y_min)
+		if (ROI_x_min > 0 && ROI_y_min > 0 && mouse_x > ROI_x_min && mouse_y > ROI_y_min)
 		{
-			//Draw rectangle 
+			//Draw rectangle
 			cv::Rect rect = cv::Rect(ROI_x_min, ROI_y_min, mouse_x - ROI_x_min, mouse_y - ROI_y_min);
 			rectangle(copyFrame, rect, Scalar(0, 0, 255), 2);
 		}
